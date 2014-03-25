@@ -2,7 +2,8 @@ extends layout
 
 block content
   div#entry
-    form#create-message
-      input(type="text", maxlength="1024", placeholder="Type up to one thousand twenty-four characters then hit enter.", name="message", size="60", value="")
+    form#create-message(action="/submit", method="post")
+      input(type="text", maxlength="1024", placeholder="Type a message.", name="message", size="60", value="")
+      input(type="hidden", name="style", value="")
     form#new-style
       input(type="button", value="Randomize Style", id="randomize")

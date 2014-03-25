@@ -214,6 +214,7 @@ window.createStyle = ->
 window.styleEntry = ->
   sessionStorage["style"] = window.style
   $("#entry").attr "style", window.style
+  $("input[name=style]").val window.style
   return
 $.fn.serializeObject = ->
   o = {}

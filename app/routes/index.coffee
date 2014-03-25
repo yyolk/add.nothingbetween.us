@@ -2,6 +2,7 @@ module.exports = (app) ->
   # Index
   app.get '/', app.ApplicationController.index
   app.get '/make', app.ApplicationController.make
+  app.post '/submit', app.ApplicationController.submit
 
   # Error handling (No previous route found. Assuming it’s a 404)
   app.get '/*', (req, res) ->
