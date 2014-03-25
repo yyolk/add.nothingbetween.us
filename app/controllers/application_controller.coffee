@@ -19,7 +19,7 @@ module.exports = (app) ->
       # app.db.get(req.params.name, (err, body) ->
       #   res.send(body)
       # )
-      app.db.show('app', 'post', req.params.name, (err, doc) ->
+      app.db.show('nothingbetweenus', 'post', req.params.id, (err, doc) ->
         if(!err)
           res.send(doc)
       )
@@ -32,7 +32,8 @@ module.exports = (app) ->
         message: req.body.message
         }, (err, body) ->
           # res.send(body)
-          app.db.show('nothingbetweenus', 'post', body.id, (err, doc) ->
-            res.send(doc)
-          )
+          # app.db.show('nothingbetweenus', 'post', body.id, (err, doc) ->
+          #   res.send(doc)
+          # )
+          res.redirect('/show/'+body.id)
         )
