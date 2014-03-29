@@ -1,11 +1,11 @@
 extends layout
 
-block css
+//- block css
   //- link(rel="stylesheet", href="http://nothingbetween.us/style/main.css", type="text/css")
 block body
   body(style='box-sizing:border-box;position:absolute;margin:0;padding:0;height:100%;width:100%;'+doc.style)
-    div(style="position:absolute;left:50%;top:50%;")
-      div(style="position:absolute;top:-50%;left:-50%;height:100%;min-height:100%")
+    div(style="position:absolute;left:0;top:50%;width:100%;text-align:center;")
+      div(style="width:100%;margin:0 auto;position:fixed;display:block;bottom:40%;")
         =doc.message
     canvas
     div(style="visibility:hidden;")
