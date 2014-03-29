@@ -19,11 +19,23 @@ module.exports = (app) ->
       # app.db.get(req.params.name, (err, body) ->
       #   res.send(body)
       # )
-      app.db.show('nothingbetweenus', 'produceconsume', req.params.id, (err, doc) ->
-        if(!err)
-          res.send(doc)
-      )
+      # app.db.show('nothingbetweenus', 'produceconsume', req.params.id, (err, doc) ->
+        app.db.get(req.params.id, {}, (err, body)->
 
+          if(!err)
+            # res.send(doc)
+            res.render('show', {
+              doc: body
+              })
+        )
+
+
+    @image = (req, res) ->
+      app.db.insert(req.body, req.body._id, (err, doc)->
+        if(!err)
+          # res.render('img', {img: req.body.img});
+          res.redirect('http://nothingbetween.us/p/'+req.body._id)
+      );
     @submit = (req, res) ->
       # res.send(req.body)
       app.db.insert({
