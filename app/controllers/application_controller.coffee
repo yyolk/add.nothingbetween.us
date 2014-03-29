@@ -34,7 +34,8 @@ module.exports = (app) ->
       app.db.insert(req.body, req.body._id, (err, doc)->
         if(!err)
           # res.render('img', {img: req.body.img});
-          res.redirect('http://nothingbetween.us/p/'+req.body._id)
+          # res.redirect('http://nothingbetween.us/p/'+req.body._id)
+          res.redirect('http://nothingbetween.us/img/'+req.body._id)
       );
     @submit = (req, res) ->
       # res.send(req.body)
