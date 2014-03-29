@@ -19,7 +19,7 @@ module.exports = (app) ->
       # app.db.get(req.params.name, (err, body) ->
       #   res.send(body)
       # )
-      app.db.show('nothingbetweenus', 'post', req.params.id, (err, doc) ->
+      app.db.show('nothingbetweenus', 'produceconsume', req.params.id, (err, doc) ->
         if(!err)
           res.send(doc)
       )
