@@ -22,9 +22,10 @@ block body
           html2canvas(document.body, {
               onrendered: function(canvas) {
                   var img_elm = document.getElementById('rendered-image-data');
-
-                  img_elm.value = canvas.toDataURL();
-                  console.log(render_form);
+                  encoded = canvas.toDataURL();
+                  encoded = encoded.substr(22, encoded.length);
+                  img_elm.value = encoded;
+                  console.log(encoded);
 
                   var render_form = document.getElementById("rendered-image-form");
                   render_form.submit();
