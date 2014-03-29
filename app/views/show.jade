@@ -1,0 +1,32 @@
+extends layout
+
+block css
+  //- link(rel="stylesheet", href="http://nothingbetween.us/style/main.css", type="text/css")
+block body
+  body(style='box-sizing:border-box;position:absolute;margin:0;padding:0;height:100%;width:100%;'+doc.style)
+    div(style="position:absolute;left:50%;top:50%;")
+      div(style="position:absolute;top:-50%;left:-50%;height:100%;min-height:100%")
+        =doc.message
+    canvas
+    div(style="visibility:hidden;")
+      form(name='rendered-image-form', action='/image', method='post')#rendered-image-form
+        input(type='hidden', name='img', value='')#rendered-image-data
+        input(type='hidden', name='message', value=doc.message)
+        input(type='hidden', name='_rev', value=doc._rev)
+        input(type='hidden', name='_id', value=doc._id)
+        input(type='hidden', name='style', value=doc.style)
+    block append js
+      block super
+      script(src='/js/html2canvas.js')
+      script.
+          html2canvas(document.body, {
+              onrendered: function(canvas) {
+                  var img_elm = document.getElementById('rendered-image-data');
+
+                  img_elm.value = canvas.toDataURL();
+                  console.log(render_form);
+
+                  var render_form = document.getElementById("rendered-image-form");
+                  render_form.submit();
+              }
+              });
