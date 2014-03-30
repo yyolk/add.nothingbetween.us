@@ -5,5 +5,6 @@ block content
     form#create-message(action="/submit", method="post")
       input(type="text", maxlength="1024", placeholder="Type a message.", name="message", size="60", value="")
       input(type="hidden", name="style", value="")
+      input(type="submit")
     form#new-style
       input(type="button", value="Randomize Style", id="randomize")
