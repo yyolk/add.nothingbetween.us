@@ -52,8 +52,8 @@ module.exports = (app) ->
           # res.redirect('/show/'+body.id)
 
           # redirect to 'post'
-          res.redirect "http://nothingbetween.us/nothingbetweenus/_design/nothingbetweenus/_show/post/#{body.id}"
+          # res.redirect "http://nothingbetween.us/nothingbetweenus/_design/nothingbetweenus/_show/post/#{body.id}"
 
           # redirect to root
-          # res.redirect '/'
+          res.redirect '/'
         )
