@@ -20,14 +20,12 @@ module.exports = (app) ->
       #   res.send(body)
       # )
       # app.db.show('nothingbetweenus', 'produceconsume', req.params.id, (err, doc) ->
-        app.db.get(req.params.id, {}, (err, body)->
+        app.db.get req.params.id, {}, (err, body)->
 
-          if(!err)
+          unless err
             # res.send(doc)
-            res.render('show', {
+            res.render 'show', 
               doc: body
-              })
-        )
 
 
     @image = (req, res) ->
