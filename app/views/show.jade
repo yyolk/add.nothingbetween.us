@@ -8,28 +8,28 @@ block body
       div(style="width:80%;position:absolute;display:block;bottom:40%;")
         =doc.message
     canvas
-    div(style="visibility:hidden;")
-      form(name='rendered-image-form', action='/image', method='post')#rendered-image-form
-        input(type='hidden', name='img', value='')#rendered-image-data
-        input(type='hidden', name='message', value=doc.message)
-        input(type='hidden', name='_rev', value=doc._rev)
-        input(type='hidden', name='_id', value=doc._id)
-        input(type='hidden', name='style', value=doc.style)
-        input(type="hidden", name="created_at", value=doc.created_at)
+    //- div(style="visibility:hidden;")
+    //-   form(name='rendered-image-form', action='/image', method='post')#rendered-image-form
+    //-     input(type='hidden', name='img', value='')#rendered-image-data
+    //-     input(type='hidden', name='message', value=doc.message)
+    //-     input(type='hidden', name='_rev', value=doc._rev)
+    //-     input(type='hidden', name='_id', value=doc._id)
+    //-     input(type='hidden', name='style', value=doc.style)
+    //-     input(type="hidden", name="created_at", value=doc.created_at)
 
     block append js
       block super
-      script(src='/js/html2canvas.js')
-      script.
-          html2canvas(document.body, {
-              onrendered: function(canvas) {
-                  var img_elm = document.getElementById('rendered-image-data');
-                  encoded = canvas.toDataURL();
-                  encoded = encoded.substr(22, encoded.length);
-                  img_elm.value = encoded;
-                  console.log(encoded);
+      //- script(src='/js/html2canvas.js')
+      //- script.
+      //-     html2canvas(document.body, {
+      //-         onrendered: function(canvas) {
+      //-             var img_elm = document.getElementById('rendered-image-data');
+      //-             encoded = canvas.toDataURL();
+      //-             encoded = encoded.substr(22, encoded.length);
+      //-             img_elm.value = encoded;
+      //-             console.log(encoded);
 
-                  var render_form = document.getElementById("rendered-image-form");
-                  render_form.submit();
-              }
-              });
+      //-             var render_form = document.getElementById("rendered-image-form");
+      //-             render_form.submit();
+      //-         }
+      //-         });
