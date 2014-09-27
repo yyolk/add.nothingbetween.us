@@ -42,6 +42,7 @@ module.exports = (app) ->
         created_at: new Date()
         style: req.body.style
         message: req.body.message
+        shortdescript: "<code>" if message.match /\!code/g
         }, (err, body) ->
           # res.send(body)
           # app.db.show('nothingbetweenus', 'post', body.id, (err, doc) ->
