@@ -47,5 +47,13 @@ module.exports = (app) ->
           # app.db.show('nothingbetweenus', 'post', body.id, (err, doc) ->
           #   res.send(doc)
           # )
-          res.redirect('/show/'+body.id)
+
+          # use internal show
+          # res.redirect('/show/'+body.id)
+
+          # redirect to 'post'
+          res.redirect "http://nothingbetween.us/nothingbetweenus/_design/nothingbetweenus/_show/post/#{body.id}"
+
+          # redirect to root
+          # res.redirect '/'
         )
