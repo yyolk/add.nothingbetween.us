@@ -55,5 +55,5 @@ module.exports = (app) ->
           # res.redirect "http://nothingbetween.us/nothingbetweenus/_design/nothingbetweenus/_show/post/#{body.id}"
 
           # redirect to root
-          res.redirect '/'
+          res.redirect 'http://nothingbetween.us/'
         )
