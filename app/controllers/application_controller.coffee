@@ -41,7 +41,7 @@ module.exports = (app) ->
       app.db.insert({
         created_at: new Date()
         style: req.body.style
-        message: req.body.message
+        message: req.body.message unless req.body.message.match /\!code/g then req.body.message.substr 5
         shortdescript: "<code>" if req.body.message.match /\!code/g
         }, (err, body) ->
           # res.send(body)
